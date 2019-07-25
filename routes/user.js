@@ -161,6 +161,7 @@ router.get('/delete',function(req,res){
             code:401,
             msg:'uid required'
         });
+        return;
     }
     pool.query(`DELETE FROM xz_user WHERE uid=?`,[obj.uid],function(err,result){
         if(err) throw err;
