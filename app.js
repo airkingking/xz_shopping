@@ -5,6 +5,7 @@ const bodyparser=require('body-parser');
 //引入同意目录下的自定义模块时'./'是必须要加的
 const user_router=require('./routes/user.js');
 const product_router=require('./routes/product.js');
+const cart_router=require('./routes/cart.js');
 
 var app=express();
 app.listen(8080);
@@ -17,3 +18,6 @@ app.use(bodyparser.urlencoded({
 app.use(express.static('./public'));
 app.use('/user',user_router);
 app.use('/product',product_router);
+app.use('/cart',cart_router);
+
+//网站首页的路由和html需要完善

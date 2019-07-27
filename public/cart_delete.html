@@ -7,18 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>修改商品</h3>
-    <form action="/product/update" method="get">
-        编号：<input type="text" name="lid">
-        <br>
-        标题：<input type="text" name="title">
-        <br>  
-        价格：<input type="text" name="price">
+    <h3>删除购物车</h3>
+    <form action="/cart/delete" method="get">
+        条目号：<input type="text" name="iid">
         <br>
         <input type="submit">
     </form>
     <h3>
-        <a href="http://localhost:8080/product_index.html">商品首页</a>
+        <a href="http://localhost:8080/cart_index.html">购物车首页</a>
     </h3>
 </body>
 </html>

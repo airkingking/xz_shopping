@@ -71,10 +71,33 @@ router.get('/add',function(req,res){
     });
 });
 
-//修改商品路由
+//修改商品路由    
 router.get('/update',function(req,res){
     var obj=req.query;
-    
+    var i=400;
+    for(var key in obj){
+        if(!obj[key]){
+            res.send({
+                code:i++,
+                msg:key+' is required'
+            });
+            return;
+        }
+    }
+    pool.query(`UPDATE xz_laptop SET ? WHERE lid=?`,[obj,obj.lid],function(err,result){
+        if(err) throw err;
+        if(result.affectedRows>0){
+            res.send({
+                code:200,
+                msg:'update suc'
+            });
+        }else{
+            res.send({
+                code:301,
+                msg:'update err'
+            });
+        }
+    });
 });
 //删除商品路由
 router.get('/delete',function(req,res){
